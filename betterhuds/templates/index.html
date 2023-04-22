@@ -1,14 +1,119 @@
 <html>
-    <head>
-        <title>Welcome!</title>
-        <link rel="stylesheet" href="../static/css/style.css">
-    </head>
-    <body>
-        <h1>Hello world!</h1>
-        <p>We can build a full webpage here</p>
+    {% extends "layout.html" %}
+    {% block content %}
         <form>
-            <input type="text" name="nickname" placeholder="Enter your nickname"/>
-            <input type="submit" value="Submit"/>
+            <input type="date" id="datePicker" value="2017-06-01" />
+            <select name="dhalls" id="dhalls">
+                {%for key,val in locations.items() %} 
+                    <option value={{key}}>{{val}}</option>
+                {%endfor%}
+            </select>         
+            <select name="meal" id="meal">
+                <option value="volvo">Breakfast</option>
+                <option value="saab">Lunch</option>
+                <option value="opel">Dinner</option>
+            </select>               
         </form>
-    </body>
-</html>
+        <!-- <div id="Page1">
+            Content of page 1
+            <a href="#" onclick="return show('Page2','Page1');">Show page 2</a>
+          </div>
+            
+          <div id="Page2" style="display:none">
+            Content of page 2
+            <a href="#" onclick="return show('Page1','Page2');">Show page 1</a>
+          </div> -->
+        
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <h5 class="card-title">Entrees</h5>
+                        <div class="card-body">
+                        <ul>
+                        {%for item in menu %} 
+                            {% if (item['category'] == 12) or (item['category'] == 17) %}
+                                <li>{{item['name']}} </li>
+                            {%endif%}
+                        {%endfor%}
+                        </ul>            
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <h5 class="card-title">Plant Based</h5>
+
+                        <div class="card-body">
+                        <ul>
+                        {%for item in menu %} 
+                            {% if (item['category'] == 13) or (item['category'] == 16) %}
+                                <li>{{item['name']}} </li>
+                            {%endif%}
+                        {%endfor%}
+                        </ul>            
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <h5 class="card-title">Sides</h5>
+                        <div class="card-body">
+                        <ul>
+                        {%for item in menu %} 
+                            {% if (item['category'] == 14) or (item['category'] == 15) %}
+                                <li>{{item['name']}} </li>
+                            {%endif%}
+                        {%endfor%}
+                        </ul>            
+                        </div>
+                    </div>
+                </div>
+            </div>   
+            <br/>
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSalad" aria-expanded="false" aria-controls="collapseExample">
+                        Salad Bar
+                    </button>
+                    <div class="collapse" id="collapseSalad">
+                        <div class="card card-body">
+                            {%for item in menu %} 
+                                {% if (item['category'] == 10) %}
+                                    {{item['name']}} | 
+                                {%endif%}
+                            {%endfor%}
+                        </div>
+                    </div>                  
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSand" aria-expanded="false" aria-controls="collapseExample">
+                        Sandwich and Deli
+                    </button>
+                    <div class="collapse" id="collapseSand">
+                        <div class="card card-body">
+                            {%for item in menu %} 
+                                {% if (item['category'] == 11) %}
+                                    {{item['name']}} | 
+                                {%endif%}
+                            {%endfor%}
+                        </div>
+                    </div>                  
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseChili" aria-expanded="false" aria-controls="collapseExample">
+                        Chili Station
+                    </button>
+                    <div class="collapse" id="collapseChili">
+                        <div class="card card-body">
+                            {%for item in menu %} 
+                                {% if (item['category'] == 45) %}
+                                    {{item['name']}} | 
+                                {%endif%}
+                            {%endfor%}
+                        </div>
+                    </div>                  
+                </div>
+            </div>
+        </div>       
+    {% endblock %}
