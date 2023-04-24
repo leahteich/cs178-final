@@ -33,8 +33,10 @@
                         <div class="card-body">
                         {%for item in menu %} 
                             {% if (item['category'] == 12) or (item['category'] == 17) or  (item['category'] == 13)%}
-                                <p type="button" class="fooditem" 
+                                <a type="button" class="fooditem" 
                                    data-html="true"
+                                   tabindex="0"
+                                   data-placement="right"
                                    data-toggle="popover" data-bs-placement="right" 
                                    title='{{item['name']}}' data-bs-content='{{item['name']}}'
                                    data-content="
@@ -59,7 +61,7 @@
                                      Protein {{item['protein']['amount']}} <br/>                                     
                                      Sodium {{item['sodium']['amount']}}
                                    ">
-                                   {{item['name']}}</p>
+                                   {{item['name']}}</a><br/>
                             {%endif%}
                         {%endfor%}
                         </div>
@@ -72,8 +74,10 @@
                         <div class="card-body">
                         {%for item in menu %} 
                             {% if (item['category'] == 14) or (item['category'] == 15) or (item['category'] == 16) %}
-                                <p type="button" class="fooditem" 
+                                <a type="button" class="fooditem" 
                                    data-html="true"
+                                   tabindex="0"
+                                   data-placement="right"
                                    data-toggle="popover" data-bs-placement="right" 
                                    title='{{item['name']}}' data-bs-content='{{item['name']}}'
                                    data-content="
@@ -98,7 +102,7 @@
                                      Protein {{item['protein']['amount']}} <br/>                                     
                                      Sodium {{item['sodium']['amount']}} 
                                    ">
-                                   {{item['name']}}</p>
+                                   {{item['name']}}</a><br/>
                             {%endif%}
                         {%endfor%}
                         </div>
@@ -111,8 +115,10 @@
                         <div class="card-body">
                         {%for item in menu %} 
                             {% if (item['category'] == 18) %}
-                                <p type="button" class="fooditem" 
+                                <a type="button" class="fooditem" 
+                                   tabindex="0"
                                    data-html="true"
+                                   data-placement="right"
                                    data-toggle="popover" data-bs-placement="right" 
                                    title='{{item['name']}}' data-bs-content='{{item['name']}}'
                                    data-content="
@@ -138,7 +144,7 @@
                                      Sodium {{item['sodium']['amount']}}
 
                                    ">
-                                   {{item['name']}}</p>
+                                   {{item['name']}}</a><br/>
                             {%endif%}
                         {%endfor%}
                         </div>

@@ -10,15 +10,11 @@ body {
 .fooditem {
     color: black;
     margin: 0%;
-    font-size: 15px;
+    font-size: 16px;
 }
-
 
 .fooditem:hover {
     color: rgb(25, 18, 96);
     font-weight: bold;
-}
-
-.card {
-    margin: 0%!important;
+    text-decoration: none
 }
