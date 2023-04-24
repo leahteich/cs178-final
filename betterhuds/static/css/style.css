@@ -1,7 +1,24 @@
 body {
     padding: 0%;
+    font-family: 'Roboto', sans-serif!important
 }
 
 .maincontent {
     padding: 2%
+}
+
+.fooditem {
+    color: black;
+    margin: 0%;
+    font-size: 15px;
+}
+
+
+.fooditem:hover {
+    color: rgb(25, 18, 96);
+    font-weight: bold;
+}
+
+.card {
+    margin: 0%!important;
 }

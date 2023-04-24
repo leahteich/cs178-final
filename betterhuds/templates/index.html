@@ -23,94 +23,176 @@
             Content of page 2
             <a href="#" onclick="return show('Page1','Page2');">Show page 1</a>
           </div> -->
-        
-        <div class="container">
+
+        <div>
             <div class="row">
                 <div class="col">
-                    <div class="card">
+                    <div class ="menutype">
                         <h5 class="card-title">Entrees</h5>
+                        <hr/>
                         <div class="card-body">
-                        <ul>
                         {%for item in menu %} 
-                            {% if (item['category'] == 12) or (item['category'] == 17) %}
-                                <li>{{item['name']}} </li>
+                            {% if (item['category'] == 12) or (item['category'] == 17) or  (item['category'] == 13)%}
+                                <p type="button" class="fooditem" 
+                                   data-html="true"
+                                   data-toggle="popover" data-bs-placement="right" 
+                                   title='{{item['name']}}' data-bs-content='{{item['name']}}'
+                                   data-content="
+                                    {% if item['vegan'] %}
+                                        <img src='static/images/vgn.png' width='25px'></img>
+                                    {% endif %}
+                                    {% if item['vegetarian'] %}
+                                        <img src='static/images/veg.png' width='25px'></img>
+                                    {% endif %}
+                                    {% if ('Peanuts' not in item['allergens']) and ('Tree Nuts' not in item['allergens'])  %}
+                                        <img src='static/images/nutfree.png' width='25px'></img>
+                                    {% endif %}
+                                    {% if ('Wheat' not in item['allergens']) %}
+                                        <img src='static/images/gf.png' width='25px'></img>
+                                    {% endif %}
+                                    <br/>
+                                    <strong> Nutrition Info (Serving: {{item['serving_size']}}) </strong> <br/>
+                                     Calories: {{item['calories']}} <br/>
+                                     Fiber {{item['fiber']['amount']}} <br/>
+                                     Fat {{item['fat']['amount']}} <br/>
+                                     Sugars {{item['sugars']['amount']}} <br/>
+                                     Protein {{item['protein']['amount']}} <br/>                                     
+                                     Sodium {{item['sodium']['amount']}}
+                                   ">
+                                   {{item['name']}}</p>
                             {%endif%}
                         {%endfor%}
-                        </ul>            
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
-                        <h5 class="card-title">Plant Based</h5>
-
-                        <div class="card-body">
-                        <ul>
-                        {%for item in menu %} 
-                            {% if (item['category'] == 13) or (item['category'] == 16) %}
-                                <li>{{item['name']}} </li>
-                            {%endif%}
-                        {%endfor%}
-                        </ul>            
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
+                    <div class ="menutype">
                         <h5 class="card-title">Sides</h5>
+                        <hr/>
                         <div class="card-body">
-                        <ul>
                         {%for item in menu %} 
-                            {% if (item['category'] == 14) or (item['category'] == 15) %}
-                                <li>{{item['name']}} </li>
+                            {% if (item['category'] == 14) or (item['category'] == 15) or (item['category'] == 16) %}
+                                <p type="button" class="fooditem" 
+                                   data-html="true"
+                                   data-toggle="popover" data-bs-placement="right" 
+                                   title='{{item['name']}}' data-bs-content='{{item['name']}}'
+                                   data-content="
+                                    {% if item['vegan'] %}
+                                        <img src='static/images/vgn.png' width='25px'></img>
+                                    {% endif %}
+                                    {% if item['vegetarian'] %}
+                                        <img src='static/images/veg.png' width='25px'></img>
+                                    {% endif %}
+                                    {% if ('Peanuts' not in item['allergens']) and ('Tree Nuts' not in item['allergens'])  %}
+                                        <img src='static/images/nutfree.png' width='25px'></img>
+                                    {% endif %}
+                                    {% if ('Wheat' not in item['allergens']) %}
+                                        <img src='static/images/gf.png' width='25px'></img>
+                                    {% endif %}
+                                    <br/>
+                                    <strong> Nutrition Info (Serving: {{item['serving_size']}}) </strong> <br/>
+                                     Calories: {{item['calories']}} <br/>
+                                     Fiber {{item['fiber']['amount']}} <br/>
+                                     Fat {{item['fat']['amount']}} <br/>
+                                     Sugars {{item['sugars']['amount']}} <br/>
+                                     Protein {{item['protein']['amount']}} <br/>                                     
+                                     Sodium {{item['sodium']['amount']}} 
+                                   ">
+                                   {{item['name']}}</p>
                             {%endif%}
                         {%endfor%}
-                        </ul>            
                         </div>
                     </div>
                 </div>
+                <div class="col">
+                    <div class ="menutype">
+                        <h5 class="card-title">Desserts</h5>
+                        <hr/>
+                        <div class="card-body">
+                        {%for item in menu %} 
+                            {% if (item['category'] == 18) %}
+                                <p type="button" class="fooditem" 
+                                   data-html="true"
+                                   data-toggle="popover" data-bs-placement="right" 
+                                   title='{{item['name']}}' data-bs-content='{{item['name']}}'
+                                   data-content="
+                                    {% if item['vegan'] %}
+                                        <img src='static/images/vgn.png' width='25px'></img>
+                                    {% endif %}
+                                    {% if item['vegetarian'] %}
+                                        <img src='static/images/veg.png' width='25px'></img>
+                                    {% endif %}
+                                    {% if ('Peanuts' not in item['allergens']) and ('Tree Nuts' not in item['allergens'])  %}
+                                        <img src='static/images/nutfree.png' width='25px'></img>
+                                    {% endif %}
+                                    {% if ('Wheat' not in item['allergens']) %}
+                                        <img src='static/images/gf.png' width='25px'></img>
+                                    {% endif %}
+                                    <br/>
+                                    <strong> Nutrition Info (Serving: {{item['serving_size']}}) </strong> <br/>
+                                     Calories: {{item['calories']}} <br/>
+                                     Fiber {{item['fiber']['amount']}} <br/>
+                                     Fat {{item['fat']['amount']}} <br/>
+                                     Sugars {{item['sugars']['amount']}} <br/>
+                                     Protein {{item['protein']['amount']}} <br/>                                     
+                                     Sodium {{item['sodium']['amount']}}
+
+                                   ">
+                                   {{item['name']}}</p>
+                            {%endif%}
+                        {%endfor%}
+                        </div>
+                    </div>
+                </div>
+
             </div>   
             <br/>
             <div class="row">
                 <div class="col">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSalad" aria-expanded="false" aria-controls="collapseExample">
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSalad" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
                         Salad Bar
                     </button>
                     <div class="collapse" id="collapseSalad">
                         <div class="card card-body">
+                            <ul> 
                             {%for item in menu %} 
                                 {% if (item['category'] == 10) %}
-                                    {{item['name']}} | 
+                                    <li> {{item['name']}} </li>
                                 {%endif%}
                             {%endfor%}
+                            </ul>
                         </div>
                     </div>                  
                 </div>
                 <div class="col">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSand" aria-expanded="false" aria-controls="collapseExample">
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSand" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
                         Sandwich and Deli
                     </button>
                     <div class="collapse" id="collapseSand">
-                        <div class="card card-body">
+                        <div class="card card-body cardstuff">
+                            <ul>
                             {%for item in menu %} 
                                 {% if (item['category'] == 11) %}
-                                    {{item['name']}} | 
+                                    <li> {{item['name']}} </li>
                                 {%endif%}
                             {%endfor%}
-                        </div>
+                            </ul>
+                        </div>                
                     </div>                  
                 </div>
                 <div class="col">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseChili" aria-expanded="false" aria-controls="collapseExample">
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseChili" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
                         Chili Station
                     </button>
                     <div class="collapse" id="collapseChili">
                         <div class="card card-body">
+                            <ul>
                             {%for item in menu %} 
                                 {% if (item['category'] == 45) %}
-                                    {{item['name']}} | 
+                                <li> {{item['name']}} </li>
                                 {%endif%}
                             {%endfor%}
+                            </ul>
                         </div>
                     </div>                  
                 </div>
