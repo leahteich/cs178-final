@@ -1,19 +1,23 @@
 <html>
     {% extends "layout.html" %}
     {% block content %}
-        <form>
-            <input type="date" id="datePicker" value="2017-06-01" />
+        <form method="post">
+            <input type="date" name="datepick" id="datePicker" value="2017-06-01" />
             <select name="dhalls" id="dhalls">
-                {%for key,val in locations.items() %} 
+                <option value="0">Breakfast</option>
+                <option value="0">Breakfast</option>
+                {# {%for key,val in locations.items() %} 
                     <option value={{key}}>{{val}}</option>
-                {%endfor%}
+                {%endfor%} #}
             </select>         
-            <select name="meal" id="meal">
-                <option value="volvo">Breakfast</option>
-                <option value="saab">Lunch</option>
-                <option value="opel">Dinner</option>
-            </select>               
+            {# <select name="meal" id="meal">
+                <option value="0">Breakfast</option>
+                <option value="1">Lunch</option>
+                <option value="2">Dinner</option>
+            </select>      #}
+            <button type="submit">Submit</button>          
         </form>
+
         <!-- <div id="Page1">
             Content of page 1
             <a href="#" onclick="return show('Page2','Page1');">Show page 2</a>
