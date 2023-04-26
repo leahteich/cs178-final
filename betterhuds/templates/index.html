@@ -4,8 +4,8 @@
         <form method="post">
             <input type="date" name="datepick" id="datePicker" value="2017-06-01" />
             <select name="dhalls" id="dhalls">
-                <option value="8">Quincy House</option>
-                <option value="16">Leverett House</option>
+                <option value=8>Quincy House</option>
+                <option value=16>Leverett House</option>
                 {# {%for key,val in locations.items() %} 
                     <option value={{key}}>{{val}}</option>
                 {%endfor%} #}
@@ -27,7 +27,7 @@
             Content of page 2
             <a href="#" onclick="return show('Page1','Page2');">Show page 1</a>
           </div> -->
-
+        <p> {{date}} </p>
         <div>
             <div class="row">
                 <div class="col">
@@ -159,7 +159,7 @@
             <br/>
             <div class="row">
                 <div class="col">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSalad" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
+                    <button class="btn btn-outline-secondary dropdown-toggle dropdown-toggle"  type="button" data-toggle="collapse" data-target="#collapseSalad" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
                         Salad Bar
                     </button>
                     <div class="collapse" id="collapseSalad">
@@ -175,7 +175,7 @@
                     </div>                  
                 </div>
                 <div class="col">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSand" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseSand" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
                         Sandwich and Deli
                     </button>
                     <div class="collapse" id="collapseSand">
@@ -191,7 +191,7 @@
                     </div>                  
                 </div>
                 <div class="col">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseChili" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseChili" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
                         Chili Station
                     </button>
                     <div class="collapse" id="collapseChili">
