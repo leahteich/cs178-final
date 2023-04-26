@@ -27,9 +27,10 @@ def index():
     else:
         my_dhall = request.form.get("dhalls")
         my_date = request.form.get("datepick")
+        my_meal = request.form.get("meals")
         # print(my_dhall)
         # print(locations[5])
-        response = requests.get("https://api.cs50.io/dining/menus", {"date": my_date, "location": my_dhall, "meal": 1})
+        response = requests.get("https://api.cs50.io/dining/menus", {"date": my_date, "location": my_dhall, "meal": my_meal})
         menu = response.json()
         menu_items = []
         for item in menu: 
