@@ -29,10 +29,11 @@
           </div> -->
         <p> {{date}} </p>
         <div>
+            <!-- Help from ChatGPT -->
             <div class="row">
-                <div class="col">
+                <div class="col-md-6">
                     <div class ="menutype">
-                        <h5 class="card-title">Entrees</h5>
+                        <h3 class="card-title">Entrees</h3>
                         <hr/>
                         <div class="card-body">
                         {%for item in menu %} 
@@ -65,13 +66,15 @@
                                      Protein {{item['protein']['amount']}} <br/>                                     
                                      Sodium {{item['sodium']['amount']}}
                                    ">
-                                   {{item['name']}}</a><br/>
+                             <span class="entree-item">{{item['name']}}</span></a><br/>
                             {%endif%}
                         {%endfor%}
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
                     <div class ="menutype">
                         <h5 class="card-title">Sides</h5>
                         <hr/>
