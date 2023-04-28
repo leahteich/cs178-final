@@ -1,6 +1,8 @@
 # ---- YOUR APP STARTS HERE ----
 # -- Import section --
+# Help from ChatGPT setting up Mongo for Flask
 from flask import Flask
+from flask_pymongo import PyMongo
 from flask import render_template
 from flask import request
 from categories import categories_wanted, recipes, locations
@@ -9,6 +11,10 @@ from multiprocessing import Pool
 
 # -- Initialization section --
 app = Flask(__name__)
+
+# --- Setting up Mongo
+app.config["MONGO_URI"] = "mongodb://localhost:27017/mydatabase"
+mongo = PyMongo(app)
 
 
 # -- Routes section --
