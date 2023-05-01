@@ -8,6 +8,7 @@ from flask import request
 from categories import categories_wanted, recipes, locations
 import requests
 from multiprocessing import Pool
+from flask import jsonify
 
 # -- Initialization section --
 app = Flask(__name__)
@@ -15,7 +16,6 @@ app = Flask(__name__)
 # --- Setting up Mongo
 app.config["MONGO_URI"] = "mongodb://localhost:27017/mydatabase"
 mongo = PyMongo(app)
-
 
 # -- Routes section --
 @app.route("/", methods=['GET','POST'])
@@ -74,3 +74,15 @@ def index():
 
 
     return render_template("index.html", menu_lunch=menu_items_lunch,menu_breakfast=menu_items_breakfast,menu_dinner=menu_items_dinner, locations=locations, loc=dining_hall, date=date)
+
+@app.route('/api/upvote/<item_id>', methods=['POST'])
+def upvote(item_id):
+    item_id = int(item_id)
+    recipes[item_id]['upvotes'] += 1
+    return jsonify(recipes[item_id])
+
+@app.route('/api/downvote/<item_id>', methods=['POST'])
+def downvote(item_id):
+    item_id = int(item_id)
+    recipes[item_id]['downvotes'] += 1
+    return jsonify(recipes[item_id])

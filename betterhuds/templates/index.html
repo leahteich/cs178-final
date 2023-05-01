@@ -252,7 +252,7 @@
                                          Sodium {{item['sodium']['amount']}}
                                        ">
                                        {{item['name']}}</a>
-                                       <p>Votes: {{ item['upvotes'] - item['downvotes'] }}</p>
+                                       <p>Votes: <span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span></p>
                                        <button class="upvote-btn" data-id="{{ item['id'] }}">Upvote</button>
                                        <button class="downvote-btn" data-id="{{ item['id'] }}">Downvote</button>
                                        <br/>
@@ -441,9 +441,9 @@
                                          Sodium {{item['sodium']['amount']}}
                                        ">
                                        {{item['name']}}</a>
-                                       <p>Votes: {{ item['upvotes'] - item['downvotes'] }}</p>
-                                       <button class="upvote-btn" data-id="{{ item['name'] }}">Upvote</button>
-                                       <button class="downvote-btn" data-id="{{ item['name'] }}">Downvote</button>
+                                       <p>Votes: <span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span></p>
+                                       <button class="upvote-btn" data-id="{{ item['id'] }}">Upvote</button>
+                                       <button class="downvote-btn" data-id="{{ item['id'] }}">Downvote</button>
                                        <br/>
                                 {%endif%}
                             {%endfor%}
