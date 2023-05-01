@@ -73,5 +73,7 @@ def index():
         recipe['id'] = item['recipe']
         if not recipe in menu_items_dinner:
             menu_items_dinner.append(recipe)
+    
+    # print(menu_items_dinner)
 
     return render_template("index.html", menu_lunch=menu_items_lunch,menu_breakfast=menu_items_breakfast,menu_dinner=menu_items_dinner, locations=locations, loc=dining_hall, date=date)
