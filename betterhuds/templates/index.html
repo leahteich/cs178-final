@@ -62,7 +62,6 @@
                                        <span onclick="starMe('{{item['id']}}')">
                                           <i id="{{item['id']}}" class="fa fa-light fa-star" style="color: grey;"></i>
                                        </span>
-                                       <br/>
                                 {%endif%}
                             {%endfor%}
                             </div>
@@ -251,7 +250,11 @@
                                          Protein {{item['protein']['amount']}} <br/>                                     
                                          Sodium {{item['sodium']['amount']}}
                                        ">
-                                       {{item['name']}}</a><br/>
+                                       {{item['name']}}</a>
+                                       <p>Votes: {{ item['upvotes'] - item['downvotes'] }}</p>
+                                       <button class="upvote-btn" data-id="{{ item['name'] }}">Upvote</button>
+                                       <button class="downvote-btn" data-id="{{ item['name'] }}">Downvote</button>
+                                       <br/>
                                 {%endif%}
                             {%endfor%}
                             </div>
@@ -435,7 +438,11 @@
                                          Protein {{item['protein']['amount']}} <br/>                                     
                                          Sodium {{item['sodium']['amount']}}
                                        ">
-                                       {{item['name']}}</a><br/>
+                                       {{item['name']}}</a>
+                                       <p>Votes: {{ item['upvotes'] - item['downvotes'] }}</p>
+                                       <button class="upvote-btn" data-id="{{ item['name'] }}">Upvote</button>
+                                       <button class="downvote-btn" data-id="{{ item['name'] }}">Downvote</button>
+                                       <br/>
                                 {%endif%}
                             {%endfor%}
                             </div>
