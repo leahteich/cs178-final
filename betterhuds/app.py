@@ -9,6 +9,7 @@ from categories import categories_wanted, recipes, locations
 import requests
 from multiprocessing import Pool
 from flask import jsonify
+import datetime
 
 # -- Initialization section --
 app = Flask(__name__)
@@ -18,7 +19,7 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/mydatabase"
 mongo = PyMongo(app)
 
 # -- Routes section --
-@app.route("/", methods=['GET','POST'])
+@app.route("/")
 @app.route("/index", methods=['GET','POST'])
 def index():
     menu_items_breakfast = []
@@ -26,20 +27,29 @@ def index():
     menu_items_dinner = []
     dining_hall = ""
     date = ""
+    date_unformatted = None
     if request.method == 'POST':
         my_dhall = int(request.form.get("dhalls"))
-        my_date = request.form.get("datepick")
-        response_breakfast = requests.get("https://api.cs50.io/dining/menus", {"date": my_date, "location": my_dhall, "meal": 0})
-        response_lunch = requests.get("https://api.cs50.io/dining/menus", {"date": my_date, "location": my_dhall, "meal": 1})
-        response_dinner = requests.get("https://api.cs50.io/dining/menus", {"date": my_date, "location": my_dhall, "meal": 2})            
+        datetimeobj = datetime.datetime.strptime(request.form.get("datepick"), "%Y-%m-%d")
+        date_formatted = datetimeobj.strftime('%Y-%m-%d')
+        date_unformatted = datetimeobj
+        response_breakfast = requests.get("https://api.cs50.io/dining/menus", {"date": date_formatted, "location": my_dhall, "meal": 0})
+        response_lunch = requests.get("https://api.cs50.io/dining/menus", {"date": date_formatted, "location": my_dhall, "meal": 1})
+        response_dinner = requests.get("https://api.cs50.io/dining/menus", {"date": date_formatted, "location": my_dhall, "meal": 2})            
         dining_hall = my_dhall
-        date = my_date
+        date = date_formatted
     else: 
-        response_breakfast = requests.get("https://api.cs50.io/dining/menus", {"date": "2023-05-02", "location": 8, "meal": 0})
-        response_lunch = requests.get("https://api.cs50.io/dining/menus", {"date": "2023-05-02", "location": 8, "meal": 1})
-        response_dinner = requests.get("https://api.cs50.io/dining/menus", {"date": "2023-05-02", "location": 8, "meal": 2})
+        today = datetime.date.today()
+        date_unformatted = today
+        today_formatted = today.strftime('%Y-%m-%d')
+        response_breakfast = requests.get("https://api.cs50.io/dining/menus", {"date": today_formatted, "location": 8, "meal": 0})
+        response_lunch = requests.get("https://api.cs50.io/dining/menus", {"date": today_formatted, "location": 8, "meal": 1})
+        response_dinner = requests.get("https://api.cs50.io/dining/menus", {"date": today_formatted, "location": 8, "meal": 2})
         dining_hall = 8
-        date = "2023-05-02"
+        date = today
+
+    date_string = date_unformatted.strftime('%A') + ", "+ date_unformatted.strftime('%B') + " " + date_unformatted.strftime('%-d')
+
     menu_breakfast = response_breakfast.json()
     menu_items_breakfast = []
     for item in menu_breakfast: 
@@ -72,8 +82,8 @@ def index():
     
     # print(menu_items_dinner)
 
-
-    return render_template("index.html", menu_lunch=menu_items_lunch,menu_breakfast=menu_items_breakfast,menu_dinner=menu_items_dinner, locations=locations, loc=dining_hall, date=date)
+    return render_template("index.html", menu_lunch=menu_items_lunch,menu_breakfast=menu_items_breakfast,menu_dinner=menu_items_dinner, 
+                           locations=locations, loc=dining_hall, date=date, date_string=date_string)
 
 @app.route('/api/upvote/<item_id>', methods=['POST'])
 def upvote(item_id):
