@@ -54,19 +54,19 @@
             trigger: 'focus'
           });
           var time = new Date();
-          // var startTime = new Date().setHours(0,0);
-          // var endTime = new Date().setHours(10,30);
           if ((time.getTime() > new Date().setHours(0,0)) && (time.getTime() < new Date().setHours(10,30))) {
               document.getElementById("lunch").style.display = "none";
               document.getElementById("dinner").style.display = "none";
               $("#brekkie").addClass("active");
               document.getElementById("breakfast").style.display = "block";
 
-          } else if ((time.getTime() > new Date().setHours(10,30)) && (time.getTime() < new Date().setHours(2,0))) {
+          } else if ((time.getTime() > new Date().setHours(10,30)) && (time.getTime() < new Date().setHours(14,0))) {
+            $("#lounch").addClass("active");
               document.getElementById("lunch").style.display = "block";
               document.getElementById("dinner").style.display = "none";
               document.getElementById("breakfast").style.display = "none";
           } else {
+            $("#dindin").addClass("active");
               document.getElementById("lunch").style.display = "none";
               document.getElementById("dinner").style.display = "block";
               document.getElementById("breakfast").style.display = "none";
