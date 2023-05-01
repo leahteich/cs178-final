@@ -102,6 +102,31 @@
 
       }
 
+    document.querySelectorAll('.upvote-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var itemId = this.dataset.id;
+        fetch('/api/upvote/' + itemId, {method: 'POST'})
+          .then(response => response.json())
+          .then(data => {
+            // Update the item's upvotes value on the page
+            document.querySelector('#netvote-' + itemId).textContent = data.upvotes-data.downvotes;
+          })
+          .catch(error => console.error(error));
+      });
+    });
+
+    document.querySelectorAll('.downvote-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var itemId = this.dataset.id;
+        fetch('/api/downvote/' + itemId, {method: 'POST'})
+          .then(response => response.json())
+          .then(data => {
+            // Update the item's downvotes value on the page
+            document.querySelector('#netvote-' + itemId).textContent = data.upvotes-data.downvotes;
+          })
+          .catch(error => console.error(error));
+      });
+    });
 
     </script>
 
