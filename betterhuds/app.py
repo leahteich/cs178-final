@@ -8,6 +8,7 @@ from flask import request
 from categories import categories_wanted, recipes, locations
 import requests
 from multiprocessing import Pool
+import datetime
 
 # -- Initialization section --
 app = Flask(__name__)
@@ -18,7 +19,7 @@ mongo = PyMongo(app)
 
 
 # -- Routes section --
-@app.route("/", methods=['GET','POST'])
+@app.route("/")
 @app.route("/index", methods=['GET','POST'])
 def index():
     menu_items_breakfast = []
@@ -35,11 +36,14 @@ def index():
         dining_hall = my_dhall
         date = my_date
     else: 
-        response_breakfast = requests.get("https://api.cs50.io/dining/menus", {"date": "2023-05-02", "location": 8, "meal": 0})
-        response_lunch = requests.get("https://api.cs50.io/dining/menus", {"date": "2023-05-02", "location": 8, "meal": 1})
-        response_dinner = requests.get("https://api.cs50.io/dining/menus", {"date": "2023-05-02", "location": 8, "meal": 2})
+        today = datetime.date.today()
+        today_formatted= today.strftime('%Y-%m-%d')
+        print(today_formatted)
+        response_breakfast = requests.get("https://api.cs50.io/dining/menus", {"date": today_formatted, "location": 8, "meal": 0})
+        response_lunch = requests.get("https://api.cs50.io/dining/menus", {"date": today_formatted, "location": 8, "meal": 1})
+        response_dinner = requests.get("https://api.cs50.io/dining/menus", {"date": today_formatted, "location": 8, "meal": 2})
         dining_hall = 8
-        date = "2023-05-02"
+        date = today
     menu_breakfast = response_breakfast.json()
     menu_items_breakfast = []
     for item in menu_breakfast: 
@@ -69,6 +73,5 @@ def index():
         recipe['id'] = item['recipe']
         if not recipe in menu_items_dinner:
             menu_items_dinner.append(recipe)
-
 
     return render_template("index.html", menu_lunch=menu_items_lunch,menu_breakfast=menu_items_breakfast,menu_dinner=menu_items_dinner, locations=locations, loc=dining_hall, date=date)

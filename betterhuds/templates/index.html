@@ -1,16 +1,27 @@
 <html>
     {% extends "layout.html" %}
     {% block content %}
-        <form method="post">
-            <input type="date" name="datepick" id="datePicker" value="2017-06-01" />
-            <select name="dhalls" id="dhalls">
-                <option value=8>Quincy House</option>
-                <option value=30>Annenberg Hall</option>
-                <option value=38>Houses (Non-Quincy)</option>
-            </select>         
-            <button action="/index" method="post">Submit</button>          
-        </form>
-        <br/>
+
+        <div id="formcontent">
+            <form action="/index" method="post">
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="date" name="datepick" id="datePicker" value="{{date}}" />
+                </div>
+                <div class="col-md-2">
+                    <select name="dhalls" id="dhalls">
+                        <option value=8 {% if loc == 8 %} selected {% endif %}>Quincy House</option>
+                        <option value=30 {% if loc == 30 %} selected {% endif %}>Annenberg Hall</option>
+                        <option value=38 {% if loc == 38 %} selected {% endif %}>Houses (Non-Quincy)</option>
+                    </select>         
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-secondary submitbutton">Submit</button>   
+                </div>  
+                <div class="col-md-6"></div>     
+            </div>
+            </form>
+        </div>
 
         <div id="mealbuttons">
             <a href=# class="mealpick" id="brekkie" onclick="myFunction('breakfast'); return false;">Breakfast</a>
@@ -19,7 +30,7 @@
         </div>
         <div id="menu_stuff">
         <div id="breakfast">
-            <h4> Menu for Breakfast in  {{locations[loc]}} on {{date}} </h4>
+            <h4> Menu for Breakfast in {{locations[loc]}} on {{date}}</h4>
             <br/>
             <div>
                 <div class="row">
