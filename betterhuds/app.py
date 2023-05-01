@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 
 @app.route("/times")
 def times():
-    render_template("times.html")
+    return render_template("times.html")
 
 # -- Routes section --
 @app.route("/")

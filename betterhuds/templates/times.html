@@ -1,4 +1,213 @@
 {% extends "layout.html" %}
 {% block content %}
 
+<input type="text" id="filter" class="form-control"value="Search" />
+<br/>
+<table class="table" id="table">
+    <thead>
+      <tr>
+        <th scope="col">Location </th>
+        <th scope="col">Breakfast</th>
+        <th scope="col">Lunch</th>
+        <th scope="col">Dinner</th>
+        <th scope="col">Weekend Brunch</th>
+        <th scope="col">Brain Break</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Adams</td>
+        <td>Continental 7:30-10:30am </td>
+        <td>M-F, 11:30am-2pm <br/><span class="badge rounded-pill bg-info" style="color:white">Halal</span>
+            <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+
+        </td>
+        <td> 5-7:30pm  <br/><span class="badge rounded-pill bg-info " style="color:white">Halal</span>  
+            <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+
+        </td>
+        <td>11:30am-2pm
+            <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+        </td>
+        <td>Su–Th, starting @9pm </td>
+      </tr>
+      <tr>
+        <td>Annenberg
+            <span class="badge rounded-pill bg-success" style="color:white">First-Years</span>
+        </td>
+        <td>Hot Breakfast, M-Sa, 7:30am-10:30am <br/> 
+            Continental, Su, 7:30-10:30am</td>
+        <td>M-F, 11:30am-2pm <br/>
+            <span class="badge rounded-pill bg-info" style="color:white">Halal</span>
+        </td>
+        <td> 4:30-7:30pm   <br/><span class="badge rounded-pill bg-info" style="color:white">Halal</span>  </td>   </td>
+        <td>11:30am-2pm </td>
+        <td>Su–Th, 9-11pm </td>
+      </tr>
+      <tr>
+        <td>Cabot</td>
+        <td>Continental, 7:30-10:30am</td>
+        <td>M-F, 11:30am-2pm  <br/><span class="badge rounded-pill bg-info" style="color:white">Halal</span>  </td></td>
+        <td> 5-7:30pm <br/><span class="badge rounded-pill bg-info" style="color:white">Halal</span>  </td></td>
+        <td>11:30am-2pm </td>
+        <td>Su–Th, starting @9pm </td>
+      </tr>
+      <tr>
+        <td>Cronkhite</td>
+        <td>Continental, 7:30-10:30am</td>
+        <td> — </td>
+        <td> — </td>
+        <td> — </td>
+        <td>Su–Th, starting @9pm </td>
+      </tr>
+      <tr>
+        <td>Currier</td>
+        <td>Continental, 7:30-10:30am</td>
+        <td>M-F, 11:30am-2pm </td>
+        <td> 5-7:30pm             <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+        </td>
+        <td>11:30am-2pm </td>
+        <td>Su–Th, starting @9pm </td>
+      </tr>
+      <tr>
+        <td>Dunster</td>
+        <td>Continental, 7:30-10:30am</td>
+        <td>M-F, 11:30am-2pm </td>
+        <td> 5-7:30pm 
+            <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+
+        </td>
+        <td>11:30am-2pm </td>
+        <td>Su–Th, starting @9pm </td>
+      </tr>
+      <tr>
+        <td>Eliot</td>
+        <td>Continental, 7:30-10:30am</td>
+        <td>M-F, 11:30am-2pm </td>
+        <td> 5-7:30pm 
+            <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+
+        </td>
+        <td>11:30am-2pm </td>
+        <td>Su–Th, starting @9pm </td>
+      </tr>
+      <tr>
+        <td>Hillel</td>
+        <td> — </td>
+        <td>Sat,12-2pm   <br/><span class="badge rounded-pill bg-primary" style="color:white">Kosher</span>  </td></td></td>
+        <td> Sun-F, 5-7pm <br/><span class="badge rounded-pill bg-primary" style="color:white">Kosher</span>  </td></td>
+    </td>
+        <td>— </td>
+        <td>— </td>
+      </tr>
+      <tr>
+        <td>Kirkland</td>
+        <td>Continental, 7:30-10:30am</td>
+        <td>M-F, 11:30am-2pm </td>
+        <td> 5-7:30pm 
+            <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+
+        </td>
+        <td>11:30am-2pm
+            <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+        </td>
+        <td>Su–Th, starting @9pm </td>
+      </tr>
+      <tr>
+        <td>Leverett</td>
+        <td>Continental, 7:30-10:30am</td>
+        <td>M-F, 11:30am-2pm 
+            <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+        </td>
+        <td> 5-7:30pm
+            <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+        </td>
+        <td>11:30am-2pm 
+            <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+        </td>
+        <td>Su–Th, starting @9pm </td>
+      </tr>
+      <tr>
+        <td>Lowell</td>
+        <td>Continental, 7:30-10:30am</td>
+        <td>M-F, 11:30am-2pm 
+            <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+        </td>
+        <td> 5-7:30pm
+            <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+        </td>
+        <td>11:30am-2pm 
+            <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+        </td>
+        <td>Su–Th, starting @9pm </td>
+      </tr>
+
+      <tr>
+        <td>Mather</td>
+        <td>Continental, 7:30-10:30am</td>
+        <td>M-F, 11:30am-2pm </td>
+        <td> 5-7:30pm</td>
+        <td>11:30am-2pm </td>
+        <td>Su–Th, starting @9pm </td>
+      </tr>
+      <tr>
+        <td>Pforzheimer</td>
+        <td>Continental, 7:30-10:30am</td>
+        <td>M-F, 11:30am-2pm </td>
+        <td> 5-7:30pm</td>
+        <td>11:30am-2pm </td>
+        <td>Su–Th, starting @9pm </td>
+      </tr>
+      <tr>
+        <td>Quincy</td>
+        <td>Hot Breakfast, M-Sa, 7:30am-10:30am <br/>
+            Continental, Su, 7:30-10:30am</td>
+        <td>M-F, 11:30am-2pm  <br/>
+            <span class="badge rounded-pill bg-primary" style="color:white">Kosher</span>             
+            <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+        </td>
+        <td> 5-7:30pm</td>
+        <td>11:30am-2pm </td>
+        <td>Su–Th, starting @9pm </td>
+      </tr>
+      <tr>
+        <td>Winthrop</td>
+        <td>Continental, 7:30-10:30am</td>
+        <td>M-F, 11:30am-2pm </td>
+        <td> 5-7:30pm
+            <span class="badge rounded-pill bg-dark" style="color:white">Resident +1</span>
+        </td>
+        <td>11:30am-2pm </td>
+        <td>Su–Th, starting @9pm </td>
+      </tr>
+    </tbody>
+  </table>
+  
+<script>
+     // Function
+ function filterTable(value) {
+     if (value != "") {
+         $("#table td:contains-ci('" + value + "')").parent("tr").show();
+     }
+ }
+
+ // jQuery expression for case-insensitive filter
+ $.extend($.expr[":"], {
+     "contains-ci": function (elem, i, match, array) {
+         return (elem.textContent || elem.innerText || $(elem).text() || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+     }
+ });
+
+ // Event listener
+ $('#filter').on('keyup', function () {
+     if ($(this).val() == '') {
+         $("#table tbody > tr").show();
+     } else {
+         $("#table > tbody > tr").hide();
+         var filters = $(this).val().split(' ');
+         filters.map(filterTable);
+     }
+ });
+</script>
+
 {% endblock %}
