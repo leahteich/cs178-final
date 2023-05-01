@@ -58,7 +58,9 @@ a {
     
 }
 
-  
+strong {
+    font-size: 16px;
+}
   
 .fooditem {
     color: black;
