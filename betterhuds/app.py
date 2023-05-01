@@ -18,6 +18,10 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/mydatabase"
 mongo = PyMongo(app)
 
 
+@app.route("/times")
+def times():
+    render_template("times.html")
+
 # -- Routes section --
 @app.route("/")
 @app.route("/index", methods=['GET','POST'])
