@@ -31,7 +31,7 @@ def index():
         my_date = request.form.get("datepick")
         response_breakfast = requests.get("https://api.cs50.io/dining/menus", {"date": my_date, "location": my_dhall, "meal": 0})
         response_lunch = requests.get("https://api.cs50.io/dining/menus", {"date": my_date, "location": my_dhall, "meal": 1})
-        response_dinner = requests.get("https://api.cs50.io/dining/menus", {"date": my_date, "location": my_dhall, "meal": 2})
+        response_dinner = requests.get("https://api.cs50.io/dining/menus", {"date": my_date, "location": my_dhall, "meal": 2})            
         dining_hall = my_dhall
         date = my_date
     else: 
@@ -46,7 +46,9 @@ def index():
         if item['recipe'] in recipes: 
             recipe = recipes[item['recipe']]
         recipe['category'] = item['category']
-        menu_items_breakfast.append(recipe)
+        recipe['id'] = item['recipe']
+        if not recipe in menu_items_breakfast:
+            menu_items_breakfast.append(recipe)
     
     menu_lunch = response_lunch.json()
     menu_items_lunch = []
@@ -54,7 +56,9 @@ def index():
         if item['recipe'] in recipes: 
             recipe = recipes[item['recipe']]
         recipe['category'] = item['category']
-        menu_items_lunch.append(recipe)
+        recipe['id'] = item['recipe']
+        if not recipe in menu_items_lunch:
+            menu_items_lunch.append(recipe)
     
     menu_dinner = response_dinner.json()
     menu_items_dinner = []
@@ -62,7 +66,9 @@ def index():
         if item['recipe'] in recipes: 
             recipe = recipes[item['recipe']]
         recipe['category'] = item['category']
-        menu_items_dinner.append(recipe)
+        recipe['id'] = item['recipe']
+        if not recipe in menu_items_dinner:
+            menu_items_dinner.append(recipe)
 
 
     return render_template("index.html", menu_lunch=menu_items_lunch,menu_breakfast=menu_items_breakfast,menu_dinner=menu_items_dinner, locations=locations, loc=dining_hall, date=date)

@@ -18,6 +18,14 @@ body {
     margin-bottom: -0.3%!important;
 }
 
+.circle {
+    border-radius: 50%;
+    height: 20px;
+    width: 40px;
+    border: 2px solid blue;
+  }	
+
+
 a {
     margin-right: 2%;
     text-decoration: none!important;
