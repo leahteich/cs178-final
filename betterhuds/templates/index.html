@@ -262,10 +262,10 @@
                                          Protein {{item['protein']['amount']}} <br/>                                     
                                          Sodium {{item['sodium']['amount']}}
                                        ">
-                                       {{item['name']}}</a>
-                                       <p>Votes: <span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span></p>
-                                       <button class="upvote-btn" data-id="{{ item['id'] }}">Upvote</button>
-                                       <button class="downvote-btn" data-id="{{ item['id'] }}">Downvote</button>
+                                       <span class = "entree-name">{{item['name']}}</span></a>
+                                       <button style="border: none;background-color: white;" class="upvote-btn vote-btn" data-id="{{ item['id'] }}">⬆️</button>
+                                       <span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span>
+                                       <button style="border: none;background-color: white;" class="downvote-btn vote-btn" data-id="{{ item['id'] }}">⬇️</button>
                                        <br/>
 
                                 {%endif%}
@@ -451,10 +451,10 @@
                                          Protein {{item['protein']['amount']}} <br/>                                     
                                          Sodium {{item['sodium']['amount']}}
                                        ">
-                                       {{item['name']}}</a>
-                                       <p>Votes: <span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span></p>
-                                       <button class="upvote-btn" data-id="{{ item['id'] }}">Upvote</button>
-                                       <button class="downvote-btn" data-id="{{ item['id'] }}">Downvote</button>
+                                       <span class = "entree-name" >{{item['name']}}</span></a>
+                                       <button  style="border: none;background-color: white;" class="upvote-btn vote-btn" data-id="{{ item['id'] }}">⬆️</button>
+                                       <span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span>
+                                       <button  style="border: none; background-color: white" class="downvote-btn vote-btn" data-id="{{ item['id'] }}">⬇️</button>
                                        <br/>
                                 {%endif%}
                             {%endfor%}
@@ -603,3 +603,4 @@
     </div>
            
     {% endblock %}
+
