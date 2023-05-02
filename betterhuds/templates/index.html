@@ -31,6 +31,7 @@
         <div id="menu_stuff">
         <div id="breakfast">
             <h4> Menu for Breakfast in {{locations[loc]}} on {{date_string}}</h4>
+            <hr/>
             <br/>
             <div>
                 <div class="row">
@@ -69,10 +70,12 @@
                                          Protein {{item['protein']['amount']}} <br/>                                     
                                          Sodium {{item['sodium']['amount']}}
                                        ">
-                                       <span class = "entree-name" >{{item['name']}}</span></a>
-                                       <button  style="border: none;background-color: white;" class="upvote-btn vote-btn up" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-up"></i></button>
-                                       <strong><span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span></strong>
-                                       <button  style="border: none; background-color: white" class="downvote-btn vote-btn down" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-down"></i></button>                                    
+                                            <span class = "entree-name" >{{item['name']}}</span></a>
+                                            <span class="socials">
+                                                <span style="border: none;" class="upvote-btn vote-btn up" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-up"></i></span>
+                                                <strong><span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span></strong>
+                                                <span style="border: none;" class="downvote-btn vote-btn down" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-down"></i></span>
+                                            </span>
                                     </a> 
 
                                        <br/>
@@ -226,6 +229,8 @@
         </div>
         <div id="lunch">
            <h4> Menu for Lunch in {{locations[loc]}} on  {{date_string}} </h4>
+           <hr/>
+
             <br/>
             <div>
                 <div class="row">
@@ -264,10 +269,12 @@
                                          Protein {{item['protein']['amount']}} <br/>                                     
                                          Sodium {{item['sodium']['amount']}}
                                        ">
-                                       <span class = "entree-name" >{{item['name']}}</span></a>
-                                       <button  style="border: none;background-color: white;" class="upvote-btn vote-btn up" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-up"></i></button>
-                                       <strong><span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span></strong>
-                                       <button  style="border: none; background-color: white" class="downvote-btn vote-btn down" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-down"></i></button>
+                                        <span class = "entree-name" >{{item['name']}}</span></a>
+                                        <span class="socials">
+                                        <span style="border: none;" class="upvote-btn vote-btn up" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-up"></i></span>
+                                        <strong><span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span></strong>
+                                        <span style="border: none;" class="downvote-btn vote-btn down" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-down"></i></span>
+                                        </span>
                                        <br/>
 
                                 {%endif%}
@@ -416,6 +423,8 @@
         </div>
         <div id="dinner">
             <h4> Menu for Dinner in {{locations[loc]}} on  {{date_string}} </h4>
+            <hr/>
+
             <br/>
                 <div class="row">
                     <div class="col-md-6">
@@ -453,11 +462,13 @@
                                          Protein {{item['protein']['amount']}} <br/>                                     
                                          Sodium {{item['sodium']['amount']}}
                                        ">
-                                       <span class = "entree-name" >{{item['name']}}</span></a>
-                                       <button  style="border: none;background-color: white;" class="upvote-btn vote-btn up" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-up"></i></button>
-                                       <strong><span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span></strong>
-                                       <button  style="border: none; background-color: white" class="downvote-btn vote-btn down" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-down"></i></button>
-                                       <br/>
+                                        <span class = "entree-name" >{{item['name']}}</span></a>
+                                        <span class="socials">
+                                            <span style="border: none;" class="upvote-btn vote-btn up" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-up"></i></span>
+                                            <strong><span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span></strong>
+                                            <span style="border: none;" class="downvote-btn vote-btn down" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-down"></i></span>
+                                        </span>
+                                        <br/>
                                 {%endif%}
                             {%endfor%}
                             </div>
