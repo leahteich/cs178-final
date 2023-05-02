@@ -262,10 +262,11 @@
                                          Protein {{item['protein']['amount']}} <br/>                                     
                                          Sodium {{item['sodium']['amount']}}
                                        ">
+                                       <!-- Help from ChatGPT and TF Felix -->
                                        <span class = "entree-name">{{item['name']}}</span></a>
-                                       <button style="border: none;background-color: white;" class="upvote-btn vote-btn" data-id="{{ item['id'] }}">⬆️</button>
+                                       <button style="border: none;background-color: white;" class="upvote-btn vote-btn" id="upvote-btn-{{ item['id'] }}" data-id="{{ item['id'] }}">⬆️</button>
                                        <span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span>
-                                       <button style="border: none;background-color: white;" class="downvote-btn vote-btn" data-id="{{ item['id'] }}">⬇️</button>
+                                       <button style="border: none;background-color: white;" class="downvote-btn vote-btn" id="downvote-btn-{{ item['id'] }}" data-id="{{ item['id'] }}">⬇️</button>
                                        <br/>
 
                                 {%endif%}
@@ -451,10 +452,11 @@
                                          Protein {{item['protein']['amount']}} <br/>                                     
                                          Sodium {{item['sodium']['amount']}}
                                        ">
+                                       <!-- Help from ChatGPT and TF Felix -->
                                        <span class = "entree-name" >{{item['name']}}</span></a>
-                                       <button  style="border: none;background-color: white;" class="upvote-btn vote-btn" data-id="{{ item['id'] }}">⬆️</button>
+                                       <button  style="border: none;background-color: white;" class="upvote-btn vote-btn" data-id="{{ item['id'] }}" id="{{ item['id'] }}">⬆️</button>
                                        <span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span>
-                                       <button  style="border: none; background-color: white" class="downvote-btn vote-btn" data-id="{{ item['id'] }}">⬇️</button>
+                                       <button  style="border: none; background-color: white" class="downvote-btn vote-btn" data-id="{{ item['id'] }}" id="{{ item['id'] }}">⬇️</button>
                                        <br/>
                                 {%endif%}
                             {%endfor%}

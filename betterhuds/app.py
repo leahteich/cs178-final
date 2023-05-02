@@ -90,6 +90,7 @@ def index():
     return render_template("index.html", menu_lunch=menu_items_lunch,menu_breakfast=menu_items_breakfast,menu_dinner=menu_items_dinner, 
                            locations=locations, loc=dining_hall, date=date, date_string=date_string)
 
+# Help from ChatGPT and TF Felix
 @app.route('/api/upvote/<item_id>', methods=['POST'])
 def upvote(item_id):
     item_id = int(item_id)

@@ -113,9 +113,28 @@
 
       }
 
+      // Help from ChatGPT and TF Felix for button functionality
+    var up_enabled = true;
+    var down_enabled = true;
+      
     document.querySelectorAll('.upvote-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var itemId = this.dataset.id;
+        // Help from TF Felix
+        // logic for which buttons to disable/enable
+        // Case 1: if the down vote is enabled, disable up vote  
+        if (down_enabled){
+          console.log("#upvote-btn-"+itemId)
+          $("#upvote-btn-"+itemId).prop('disabled', true);
+          up_enabled = false;
+        }
+        // Case 2: if down vote is disabled, click up vote, then enable down vote 
+        if (!down_enabled){
+          $("#downvote-btn-"+itemId).prop('disabled', false);
+            down_enabled = true;
+        } 
+
+
         fetch('/api/upvote/' + itemId, {method: 'POST'})
           .then(response => response.json())
           .then(data => {
@@ -123,12 +142,27 @@
             document.querySelector('#netvote-' + itemId).textContent = data.upvotes-data.downvotes;
           })
           .catch(error => console.error(error));
+      
       });
     });
 
     document.querySelectorAll('.downvote-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var itemId = this.dataset.id;
+        // Help from TF Felix
+        // logic for which buttons to disable/enable
+        // Case 1: if the up vote is enabled, disable down vote  
+        if (up_enabled){
+          console.log("#upvote-btn-"+itemId)
+          $("#downvote-btn-"+itemId).prop('disabled', true);
+          down_enabled = false;
+        }
+        // Case 2: if up vote is disabled, click down vote, then enable up vote 
+        if (!up_enabled){
+          $("#upvote-btn-"+itemId).prop('disabled', false);
+            up_enabled = true;
+        } 
+
         fetch('/api/downvote/' + itemId, {method: 'POST'})
           .then(response => response.json())
           .then(data => {
