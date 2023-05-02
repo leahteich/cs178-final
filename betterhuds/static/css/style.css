@@ -8,9 +8,9 @@ body {
 }
 
 #menu_stuff {
-    border: 2px solid black;
-    border-radius: 15px;
-    padding: 1%
+    border: 1px solid black;
+    /* border-radius: 15px; */
+    padding: 2%
 }
 
 #mealbuttons {
@@ -45,16 +45,16 @@ a {
     padding-left: 2%;
     padding-top: 0.5%;
     padding-right: 2%;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .mealpick.active {
     font-size: 20px;
     background-color: white;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border: 2px solid black;
-    border-bottom: 5px solid rgb(255, 255, 255); 
+    /* border-top-left-radius: 15px;
+    border-top-right-radius: 15px; */
+    border: 1px solid black;
+    border-bottom: 3px solid rgb(255, 255, 255); 
     
 }
 
@@ -69,7 +69,7 @@ strong {
 }
 
 .entree-item {
-    font-size: 15px!important;
+    font-size: 16px;
 }
 
 .fooditem:hover {
@@ -78,8 +78,15 @@ strong {
     text-decoration: none
 }
 
+.formstuff{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+      width: 50%;
+}
+
 .vote-btn {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .vote-btn:focus {
@@ -99,6 +106,6 @@ strong {
   }
 
   .entree-name {
-    font-size: 20px;
+    font-size: 18px;
   }
 

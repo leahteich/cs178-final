@@ -1,29 +1,50 @@
-# ---- YOUR APP STARTS HERE ----
 # -- Import section --
-# Help from ChatGPT setting up Mongo for Flask
-from flask import Flask
-from flask_pymongo import PyMongo
-from flask import render_template
-from flask import request
+from flask import render_template, request, Flask, jsonify
 from categories import categories_wanted, recipes, locations
 import requests
 from multiprocessing import Pool
-from flask import jsonify
 import datetime
+import sqlite3
+from sqlite3 import Error
 
 # -- Initialization section --
 app = Flask(__name__)
 
-# --- Setting up Mongo
-app.config["MONGO_URI"] = "mongodb://localhost:27017/mydatabase"
-mongo = PyMongo(app)
+
+def create_connection():
+    conn = None;
+    try:
+        conn = sqlite3.connect(':memory:')
+        print(sqlite3.version)
+    except Error as e:
+        print(e)
+    finally:
+        if conn:
+            conn.close()
 
 
+# -- Routes section --
 @app.route("/times")
 def times():
     return render_template("times.html")
 
-# -- Routes section --
+
+@app.route("/favs")
+def favs():
+    fav_items = []
+    ew_items = []
+    for item in recipes: 
+        if (recipes[item]["upvotes"] != None) and (recipes[item]["downvotes"] != None):
+            if (recipes[item]["upvotes"] - recipes[item]["downvotes"] > 0):
+                fav_items.append((recipes[item]['name'], recipes[item]["upvotes"] - recipes[item]["downvotes"]))
+            elif (recipes[item]["upvotes"] - recipes[item]["downvotes"] < 0):
+                ew_items.append((recipes[item]['name'], recipes[item]["upvotes"] - recipes[item]["downvotes"] ))
+    fav_items.sort(key = lambda x: x[1],reverse=True)
+    ew_items.sort(key = lambda x: x[1])
+    print(fav_items)
+    return render_template("favs.html", favs=fav_items, notfavs=ew_items)
+
+
 @app.route("/")
 @app.route("/index", methods=['GET','POST'])
 def index():
@@ -85,8 +106,6 @@ def index():
         if not recipe in menu_items_dinner:
             menu_items_dinner.append(recipe)
     
-    # print(menu_items_dinner)
-
     return render_template("index.html", menu_lunch=menu_items_lunch,menu_breakfast=menu_items_breakfast,menu_dinner=menu_items_dinner, 
                            locations=locations, loc=dining_hall, date=date, date_string=date_string)
 
@@ -101,3 +120,6 @@ def downvote(item_id):
     item_id = int(item_id)
     recipes[item_id]['downvotes'] += 1
     return jsonify(recipes[item_id])
+
+if __name__ == '__main__':
+    create_connection(r"pythonsqlite.db")

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% if (favs |length ==0 ) and (notfavs |length ==0)%}
+    <p> Upvote some items to see favorites and least favorites</p>
+{%endif%}
+
+ {% if favs |length !=0 %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Favorite Items</th>
+        <th scope="col">Score</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for item in favs %}
+      <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{item[0]}}</td>
+        <td>{{item[1]}}</td>
+      </tr>
+    {%endfor%}
+    </tbody>
+  </table>
+  {% endif %}
+  
+  {% if notfavs |length !=0 %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Least Favorite Items</th>
+        <th scope="col">Score</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for item in notfavs %}
+      <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{item[0]}}</td>
+        <td>{{item[1]}}</td>
+      </tr>
+    {%endfor%}
+    </tbody>
+  </table>
+  {% endif %}
+
+
+{% endblock %}
