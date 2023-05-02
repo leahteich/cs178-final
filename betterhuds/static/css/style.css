@@ -10,7 +10,7 @@ body {
 
 .socials {
     margin-left: 10px;
-    background-color: rgb(229, 229, 229);
+    background-color: rgb(229, 229, 229)!important;
     border-radius: 10px;
     width: 100px;
     font-family: 'Poppins';
@@ -19,7 +19,8 @@ body {
 
 #menu_stuff {
     border: 1px solid #000000;
-    padding: 2%
+    padding: 2%;
+    background-color: white;
 }
 
 #mealbuttons {
