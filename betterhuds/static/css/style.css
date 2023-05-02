@@ -18,8 +18,7 @@ body {
 }
 
 #menu_stuff {
-    border: 1px solid black;
-    /* border-radius: 15px; */
+    border: 1px solid #000000;
     padding: 2%
 }
 
@@ -29,7 +28,6 @@ body {
 }
 
 
- 
 #formcontent {
     padding-left: 1%;
     margin-bottom: 2%;
