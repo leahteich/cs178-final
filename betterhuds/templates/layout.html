@@ -108,13 +108,14 @@
       // Help from ChatGPT and TF Felix for button functionality
     var up_enabled = true;
     var down_enabled = true;
-      
+      // Rate (Action): Upvote and downvote 
     document.querySelectorAll('.upvote-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var itemId = this.dataset.id;
         // Help from TF Felix
         // logic for which buttons to disable/enable
         // Case 1: if the down vote is enabled, disable up vote  
+        // Rate (Action): Disabling/enabling to only allow one vote per refresh 
         if (down_enabled){
           console.log("#upvote-btn-"+itemId)
           $("#upvote-btn-"+itemId).prop('disabled', true);
@@ -126,7 +127,7 @@
             down_enabled = true;
         } 
 
-
+        
         fetch('/api/upvote/' + itemId, {method: 'POST'})
           .then(response => response.json())
           .then(data => {
@@ -144,6 +145,7 @@
         // Help from TF Felix
         // logic for which buttons to disable/enable
         // Case 1: if the up vote is enabled, disable down vote  
+        // Rate (Action): Disabling/enabling to only allow one vote per refresh 
         if (up_enabled){
           console.log("#upvote-btn-"+itemId)
           $("#downvote-btn-"+itemId).prop('disabled', true);

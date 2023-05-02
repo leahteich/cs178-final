@@ -110,6 +110,7 @@ def index():
                            locations=locations, loc=dining_hall, date=date, date_string=date_string)
 
 # Help from ChatGPT and TF Felix
+# Rate (state): upvoted, downvoted, unrated 
 @app.route('/api/upvote/<item_id>', methods=['POST'])
 def upvote(item_id):
     item_id = int(item_id)
