@@ -69,7 +69,7 @@ strong {
 }
 
 .entree-item {
-    font-size: 20px!important;
+    font-size: 15px!important;
 }
 
 .fooditem:hover {
@@ -77,3 +77,28 @@ strong {
     font-weight: bold;
     text-decoration: none
 }
+
+.vote-btn {
+    font-size: 20px;
+  }
+
+  .vote-btn:focus {
+    outline: none;
+}
+
+  .vote-btn:hover {
+    font-size: 20px;
+  }
+
+  .up:hover {
+    color: green
+  }
+
+  .down:hover {
+    color:red;
+  }
+
+  .entree-name {
+    font-size: 20px;
+  }
+

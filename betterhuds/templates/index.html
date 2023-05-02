@@ -69,10 +69,12 @@
                                          Protein {{item['protein']['amount']}} <br/>                                     
                                          Sodium {{item['sodium']['amount']}}
                                        ">
-                                       {{item['name']}}</a> 
-                                       <span onclick="starMe('{{item['id']}}')">
-                                          <i id="{{item['id']}}" class="fa fa-light fa-star" style="color: grey;"></i>
-                                       </span>
+                                       <span class = "entree-name" >{{item['name']}}</span></a>
+                                       <button  style="border: none;background-color: white;" class="upvote-btn vote-btn up" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-up"></i></button>
+                                       <strong><span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span></strong>
+                                       <button  style="border: none; background-color: white" class="downvote-btn vote-btn down" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-down"></i></button>                                    
+                                    </a> 
+
                                        <br/>
                                 {%endif%}
                             {%endfor%}
@@ -262,10 +264,10 @@
                                          Protein {{item['protein']['amount']}} <br/>                                     
                                          Sodium {{item['sodium']['amount']}}
                                        ">
-                                       <span class = "entree-name">{{item['name']}}</span></a>
-                                       <button style="border: none;background-color: white;" class="upvote-btn vote-btn" data-id="{{ item['id'] }}">⬆️</button>
-                                       <span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span>
-                                       <button style="border: none;background-color: white;" class="downvote-btn vote-btn" data-id="{{ item['id'] }}">⬇️</button>
+                                       <span class = "entree-name" >{{item['name']}}</span></a>
+                                       <button  style="border: none;background-color: white;" class="upvote-btn vote-btn up" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-up"></i></button>
+                                       <strong><span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span></strong>
+                                       <button  style="border: none; background-color: white" class="downvote-btn vote-btn down" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-down"></i></button>
                                        <br/>
 
                                 {%endif%}
@@ -452,9 +454,9 @@
                                          Sodium {{item['sodium']['amount']}}
                                        ">
                                        <span class = "entree-name" >{{item['name']}}</span></a>
-                                       <button  style="border: none;background-color: white;" class="upvote-btn vote-btn" data-id="{{ item['id'] }}">⬆️</button>
-                                       <span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span>
-                                       <button  style="border: none; background-color: white" class="downvote-btn vote-btn" data-id="{{ item['id'] }}">⬇️</button>
+                                       <button  style="border: none;background-color: white;" class="upvote-btn vote-btn up" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-up"></i></button>
+                                       <strong><span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span></strong>
+                                       <button  style="border: none; background-color: white" class="downvote-btn vote-btn down" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-down"></i></button>
                                        <br/>
                                 {%endif%}
                             {%endfor%}
@@ -498,7 +500,10 @@
                                              Protein {{item['protein']['amount']}} <br/>                                     
                                              Sodium {{item['sodium']['amount']}} 
                                            ">
-                                           {{item['name']}}</a><br/>
+                                           {{item['name']}}
+                                        
+                                        </a>
+                                           <br/>
                                     {%endif%}
                                 {%endfor%}
                                 </div>
