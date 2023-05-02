@@ -463,6 +463,7 @@
                                          Sodium {{item['sodium']['amount']}}
                                        ">
                                        <!-- Help from ChatGPT and TF Felix -->
+                                       <!-- Rate (State): Upvoted, downvoted, unrated -->
                                        <span class = "entree-name" >{{item['name']}}</span></a>
                                        <button style="border: none;background-color: white;" class="upvote-btn vote-btn" id="upvote-btn-{{ item['id'] }}" data-id="{{ item['id'] }}"><i class="fa-solid fa-arrow-up"></i></button>
                                        <span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span>
