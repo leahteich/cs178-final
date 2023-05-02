@@ -23,6 +23,8 @@
             </form>
         </div>
 
+        <i class="fa fa-salad"></i>
+
         <div id="mealbuttons">
             <a href=# class="mealpick" id="brekkie" onclick="myFunction('breakfast'); return false;">Breakfast</a>
             <a href=# class="mealpick" id="lounch" onclick="myFunction('lunch'); return false;">Lunch</a>
@@ -31,12 +33,13 @@
         <div id="menu_stuff">
         <div id="breakfast">
             <h4> Menu for Breakfast in {{locations[loc]}} on {{date_string}}</h4>
+            <hr/>
             <br/>
             <div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class ="menutype">
-                            <h5 class="card-title">Entrees</h5>
+                            <h5 class="card-title"><i class="fa fa-solid fa-egg"></i> Entrees</h5>
                             <hr/>
                             <div class="card-body">
                             {%for item in menu_breakfast %} 
@@ -69,10 +72,14 @@
                                          Protein {{item['protein']['amount']}} <br/>                                     
                                          Sodium {{item['sodium']['amount']}}
                                        ">
-                                       {{item['name']}}</a> 
-                                       <span onclick="starMe('{{item['id']}}')">
-                                          <i id="{{item['id']}}" class="fa fa-light fa-star" style="color: grey;"></i>
-                                       </span>
+                                            <span class = "entree-name" >{{item['name']}}</span></a>
+                                            <span class="socials">
+                                                <span style="border: none;" class="upvote-btn vote-btn up" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-up"></i></span>
+                                                <strong><span id = "netvote-{{item['id']}}">{{ item['upvotes'] - item['downvotes'] }}</span></strong>
+                                                <span style="border: none;" class="downvote-btn vote-btn down" data-id="{{ item['id'] }}"><i class="fa fa-solid fa-arrow-down"></i></span>
+                                            </span>
+                                    </a> 
+
                                        <br/>
                                 {%endif%}
                             {%endfor%}
@@ -83,7 +90,7 @@
                     <div class="col-md-5" style="padding-left:6%!important">
                         <div class="row"> 
                             <div class ="menutype">
-                                <h5 class="card-title">Bakery</h5>
+                                <h5 class="card-title"> <i class="fa fa-solid fa-bread-slice"></i> Bakery</h5>
                                 <hr/>
                                 <div class="card-body">
                                 {%for item in menu_breakfast %}
@@ -125,7 +132,7 @@
                         {% if (loc == 8) or (loc == 30) %}
                         <div class="row">
                             <div class ="menutype">
-                                <h5 class="card-title">Sides</h5>
+                                <h5 class="card-title"> <i class="fa fa-solid fa-bacon"></i> Sides</h5>
                                 <hr/>
                                 <div class="card-body">
                                 {%for item in menu_breakfast %} 
@@ -171,7 +178,7 @@
                 <div class="row">
                     <div class="col">
                         <button class="btn btn-outline-secondary dropdown-toggle dropdown-toggle"  type="button" data-toggle="collapse" data-target="#collapseSalad" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
-                            Salad Bar
+                            <i class="fa fa-solid fa-leaf"></i> Salad Bar 
                         </button>
                         <div class="collapse" id="collapseSalad">
                             <div class="card card-body">
@@ -188,7 +195,7 @@
                     {% if (loc == 8) or (loc == 30) %}
                         <div class="col">
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseSand" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
-                                Fresh Fruit
+                                <i class="fa fa-solid fa-apple-whole"></i> Fresh Fruit
                             </button>
                             <div class="collapse" id="collapseSand">
                                 <div class="card card-body cardstuff">
@@ -204,7 +211,7 @@
                         </div>
                         <div class="col">
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseChili" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
-                                Parfait Station
+                                <i class="fa fa-solid fa-whiskey-glass"></i>  Parfait Station
                             </button>
                             <div class="collapse" id="collapseChili">
                                 <div class="card card-body">
@@ -224,12 +231,14 @@
         </div>
         <div id="lunch">
            <h4> Menu for Lunch in {{locations[loc]}} on  {{date_string}} </h4>
+           <hr/>
+
             <br/>
             <div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class ="menutype">
-                            <h5 class="card-title">Entrees</h5>
+                            <h5 class="card-title"> <i class="fa fa-solid fa-pizza-slice"></i> Entrees</h5>
                             <hr/>
                             <div class="card-body">
                             {%for item in menu_lunch %} 
@@ -278,7 +287,7 @@
                     <div class="col-md-5" style="padding-left:6%!important">
                         <div class="row"> 
                             <div class ="menutype">
-                                <h5 class="card-title">Sides</h5>
+                                <h5 class="card-title"><i class="fa-solid fa-pepper-hot"></i> Sides</h5>
                                 <hr/>
                                 <div class="card-body">
                                 {%for item in menu_lunch %} 
@@ -319,7 +328,7 @@
                         </div>
                         <div class="row">
                             <div class ="menutype">
-                                <h5 class="card-title">Desserts</h5>
+                                <h5 class="card-title"><i class="fa-solid fa-cookie"></i> Desserts</h5>
                                 <hr/>
                                 <div class="card-body">
                                 {%for item in menu_lunch %} 
@@ -364,7 +373,7 @@
                 <div class="row">
                     <div class="col">
                         <button class="btn btn-outline-secondary dropdown-toggle dropdown-toggle"  type="button" data-toggle="collapse" data-target="#collapseSalad" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
-                            Salad Bar
+                            <i class="fa fa-solid fa-leaf"></i> Salad Bar 
                         </button>
                         <div class="collapse" id="collapseSalad">
                             <div class="card card-body">
@@ -380,7 +389,7 @@
                     </div>
                     <div class="col">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseSand" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
-                            Sandwich and Deli
+                            <i class="fa-solid fa-burger"></i> Sandwich and Deli 
                         </button>
                         <div class="collapse" id="collapseSand">
                             <div class="card card-body cardstuff">
@@ -396,7 +405,7 @@
                     </div>
                     <div class="col">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseChili" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
-                            Chili Station
+                            <i class="fa fa-solid fa-bowl-food"></i> Chili Station
                         </button>
                         <div class="collapse" id="collapseChili">
                             <div class="card card-body">
@@ -415,11 +424,13 @@
         </div>
         <div id="dinner">
             <h4> Menu for Dinner in {{locations[loc]}} on  {{date_string}} </h4>
+            <hr/>
+
             <br/>
                 <div class="row">
                     <div class="col-md-6">
                         <div class ="menutype">
-                            <h5 class="card-title">Entrees</h5>
+                            <h5 class="card-title"> <i class="fa-solid fa fa-drumstick-bite"></i> Entrees</h5>
                             <hr/>
                             <div class="card-body">
                             {%for item in menu_dinner %} 
@@ -467,7 +478,7 @@
                     <div class="col-md-5" style="padding-left:6%!important">
                         <div class="row"> 
                             <div class ="menutype">
-                                <h5 class="card-title">Sides</h5>
+                                <h5 class="card-title"><i class="fa-solid fa-pepper-hot"></i> Sides</h5>
                                 <hr/>
                                 <div class="card-body">
                                 {%for item in menu_dinner %} 
@@ -500,7 +511,10 @@
                                              Protein {{item['protein']['amount']}} <br/>                                     
                                              Sodium {{item['sodium']['amount']}} 
                                            ">
-                                           {{item['name']}}</a><br/>
+                                           {{item['name']}}
+                                        
+                                        </a>
+                                           <br/>
                                     {%endif%}
                                 {%endfor%}
                                 </div>
@@ -508,7 +522,7 @@
                         </div>
                         <div class="row">
                             <div class ="menutype">
-                                <h5 class="card-title">Desserts</h5>
+                                <h5 class="card-title"><i class="fa-solid fa-cookie"></i> Desserts</h5>
                                 <hr/>
                                 <div class="card-body">
                                 {%for item in menu_dinner %} 
@@ -553,7 +567,7 @@
                 <div class="row">
                     <div class="col">
                         <button class="btn btn-outline-secondary dropdown-toggle dropdown-toggle"  type="button" data-toggle="collapse" data-target="#collapseSalad" aria-expanded="false" aria-controls="collapseExample" style="width:100%">
-                            Salad Bar
+                            <i class="fa fa-solid fa-leaf"></i> Salad Bar 
                         </button>
                         <div class="collapse" id="collapseSalad">
                             <div class="card card-body">
